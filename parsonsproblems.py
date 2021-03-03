@@ -23,8 +23,8 @@ myList.append("pineapples")
 print (myList)
 
 #Write your answer to Parson's Problem #3 below:
-x = int(x)
 x = input("type a number")
+x = int(x)
 if x > 0:
     print("That're more than nothing!")
 else:
