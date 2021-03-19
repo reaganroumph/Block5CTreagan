@@ -13,8 +13,9 @@ def mainProgram():
 2. add a bunch of numbers
 3. return the value at an index position
 4. random search
-5. print contents of list
-6. quit program""")
+5. linear search
+6. print contents of list
+7. quit program""")
             if choice == "1":
                 addToList()
             elif choice == "2":
@@ -24,13 +25,15 @@ def mainProgram():
             elif choice == "4":
                 randomSearch()
             elif choice == "5":
+                linearSearch()
+            elif choice == "6":
                 print(myList)
             else:
                 break
         except:
             print("you made a whoopsie!")
          
-    def addToList():
+def addToList():
     print("Adding to a list! Great choice!")
     newItem = input("Type an integer here!  ")
     myList.append(int(newItem))
