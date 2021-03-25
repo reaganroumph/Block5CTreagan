@@ -2,6 +2,7 @@
 
 
 myList = []
+uniqueList = []
 import random
 
 def mainProgram():
@@ -14,7 +15,7 @@ def mainProgram():
 3. return the value at an index position
 4. random search
 5. linear search
-6. print contents of list
+6. sort list
 7. quit program""")
             if choice == "1":
                 addToList()
@@ -27,7 +28,7 @@ def mainProgram():
             elif choice == "5":
                 linearSearch()
             elif choice == "6":
-                print(myList)
+                sortList(myList)
             else:
                 break
         except:
@@ -52,6 +53,16 @@ def indexValues():
     indexPos = input("What index position are you curious about?")
     print (myList[int(indexPos)])
 
+def sortList (myList):
+    print("a little birdie told me you needed some sorted data!")
+    for x in myList:
+        if x not in uniqueList:
+            uniqueList.append(x)
+    uniqueList.sort()
+    showMe = input("wanna see your new list?   Y/N")
+    if showMe.lower() == "y":
+        print(uniqueList)
+    
 def randomSearch():
     print("RaNdOm SeArCh?!")
     print(myList[random.randint(0,len(myList)-1)])
@@ -62,6 +73,16 @@ def linearSearch():
     for x in range(len(myList)):
         if myList[x] == int(searchItem):
             print("your item is at index position {}".format(x))
+
+def printLists():
+    if len(uniqueList) == 0:
+        print(myList)
+    else:
+        whichOne = input("which list? sorted or unsorted?   ")
+        if whichOne.lower() == "sorted":
+            print(uniqueList)
+        else:
+            print(myList)
 
 if __name__ == "__main__":
     mainProgram()
