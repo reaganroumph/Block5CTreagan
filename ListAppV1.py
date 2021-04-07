@@ -16,7 +16,10 @@ def mainProgram():
 4. random search
 5. linear search
 6. sort list
-7. quit program""")
+7. print lists
+8. recursive binary search
+9. iterative binary search
+10. quit program""")
             if choice == "1":
                 addToList()
             elif choice == "2":
@@ -29,6 +32,18 @@ def mainProgram():
                 linearSearch()
             elif choice == "6":
                 sortList(myList)
+            elif choice == "7":
+                printLists()
+            elif choice == "8":
+                binSearch = input("what number are you looking for?  ")
+                recursiveBinarySearch(uniqueList, 0, len(uniqueList)-1, int(binSearch))
+            elif choice == "9":
+                binSearch = input("what number are you looking for?  ")
+                result = iterativeBinarySearch(uniqueList, int(binSearch))
+                if result != -1:
+                    print("your number is at index position {}".format(result))
+                else:
+                    print("your number is not found in that list, bud!")
             else:
                 break
         except:
@@ -66,6 +81,8 @@ def sortList (myList):
 def randomSearch():
     print("RaNdOm SeArCh?!")
     print(myList[random.randint(0,len(myList)-1)])
+    if len(uniqueList) > 0:
+        print(uniqueList[random.randint(0, len(uniqueList)-1)])
 
 def linearSearch():
     print("we're gonna check out each item one at a time in your list! this sucks.")
@@ -73,6 +90,22 @@ def linearSearch():
     for x in range(len(myList)):
         if myList[x] == int(searchItem):
             print("your item is at index position {}".format(x))
+
+def recursiveBinarySearch(uniqueList, low, high, x):
+    if high >= low:
+        mid = (high + low) // 2
+
+        if uniqueList[mid] == x:
+            print("your number is at index position {}".format(mid))
+            return mid
+        
+        elif uniqueList[mid] > x:
+            return recursiveBinarySearch(uniqueList, low, mid - 1, x)
+        
+        else:
+            return recursiveBinarySearch(uniqueList, mid + 1, high, x)
+    else:
+        print("your number isn't here!")
 
 def printLists():
     if len(uniqueList) == 0:
@@ -83,6 +116,24 @@ def printLists():
             print(uniqueList)
         else:
             print(myList)
+
+def iterativeBinarySearch(uniqueList, x):
+    low = 0
+    high = len(uniqueList)-1
+    mid = 0
+
+    while low <= high:
+        mid = (High + low) // 2
+
+        if uniqueList[mid] < x:
+            low = mid + 1
+
+        elif uniqueList[mid] > x:
+            high - mid - 1
+        else:
+            return mid
+    return -1
+
 
 if __name__ == "__main__":
     mainProgram()
