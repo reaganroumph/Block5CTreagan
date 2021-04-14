@@ -18,8 +18,9 @@ def mainProgram():
 6. sort list
 7. print lists
 8. recursive binary search
-9. iterative binary search
-10. quit program""")
+9. create letter list
+10. iterative binary search
+11. quit program""")
             if choice == "1":
                 addToList()
             elif choice == "2":
@@ -38,6 +39,8 @@ def mainProgram():
                 binSearch = input("what number are you looking for?  ")
                 recursiveBinarySearch(uniqueList, 0, len(uniqueList)-1, int(binSearch))
             elif choice == "9":
+                letterList()
+            elif choice == "10":
                 binSearch = input("what number are you looking for?  ")
                 result = iterativeBinarySearch(uniqueList, int(binSearch))
                 if result != -1:
@@ -133,6 +136,21 @@ def iterativeBinarySearch(uniqueList, x):
         else:
             return mid
     return -1
+
+def letterList():
+    letterList = []
+    print("adding letters to a list i see pardner, nice")
+    newLetter = input("type your word/letters here")
+    letterList.append(newLetter)
+    lemmeSee = input("would you like to see your new letter list?  Y/N?")
+    if lemmeSee.lower() == "y":
+        print(letterList)
+
+    
+    
+    
+    
+
 
 
 if __name__ == "__main__":
