@@ -51,11 +51,23 @@ def mainProgram():
                 break
         except:
             print("you made a whoopsie!")
-         
+
+"""
+AddToList()
+the add to list function works by asking the user what integer they would like to add to the list and then
+appending it to the end of the myList
+"""
 def addToList():
     print("Adding to a list! Great choice!")
     newItem = input("Type an integer here!  ")
     myList.append(int(newItem))
+
+"""
+AddABunch()
+the add a bunch function asks the user how many integers and how high the
+value they want the integers to be, this then adds the integers to myList
+that follows the boundaries given by the user
+"""
 
 def addABunch():
     print("we're gonna add a bunch of integers here!")
@@ -64,12 +76,23 @@ def addABunch():
     for x in range(0,int(numToAdd)):
         myList.append(random.randint(0, int(numRange)))
     print("your list is now complete.")
-    
 
+"""
+indexValues()
+the index value pulls out a certain integer by the user at the index
+position given by the user
+"""
+    
 def indexValues():
     print("ohhh! I heard you need a particular piece of data!")
     indexPos = input("What index position are you curious about?")
     print (myList[int(indexPos)])
+
+"""
+sortList()
+the sort list function works by sorting the myList function
+and turning it into a 'new' list called uniqueList
+"""
 
 def sortList (myList):
     print("a little birdie told me you needed some sorted data!")
@@ -80,12 +103,22 @@ def sortList (myList):
     showMe = input("wanna see your new list?   Y/N")
     if showMe.lower() == "y":
         print(uniqueList)
-    
+
+"""
+randomSearch()
+the random search function gives you a random integer from either myList or uniqueList
+"""
 def randomSearch():
     print("RaNdOm SeArCh?!")
     print(myList[random.randint(0,len(myList)-1)])
     if len(uniqueList) > 0:
         print(uniqueList[random.randint(0, len(uniqueList)-1)])
+
+"""
+linearSearch()
+linear search works by searching for a certain value of integer through the list by
+going through every piece of data one by one, it then spits out what index pos the value is at
+"""
 
 def linearSearch():
     print("we're gonna check out each item one at a time in your list! this sucks.")
@@ -93,6 +126,11 @@ def linearSearch():
     for x in range(len(myList)):
         if myList[x] == int(searchItem):
             print("your item is at index position {}".format(x))
+
+"""
+recursiveBinarySearch()
+this function works by giving the user the mid value index pos
+"""
 
 def recursiveBinarySearch(uniqueList, low, high, x):
     if high >= low:
@@ -110,6 +148,12 @@ def recursiveBinarySearch(uniqueList, low, high, x):
     else:
         print("your number isn't here!")
 
+"""
+printLists()
+print lists works by printing either the myList or uniqueList depening on if
+the user responds with sorted or unsorted
+"""
+
 def printLists():
     if len(uniqueList) == 0:
         print(myList)
@@ -119,6 +163,11 @@ def printLists():
             print(uniqueList)
         else:
             print(myList)
+
+"""
+iterativeBinarySearch()
+this function returns the user the mid value 
+"""
 
 def iterativeBinarySearch(uniqueList, x):
     low = 0
@@ -136,6 +185,12 @@ def iterativeBinarySearch(uniqueList, x):
         else:
             return mid
     return -1
+
+"""
+letterList()
+this function works by asking the user for the string they want to add to the list
+it then asks if the user would like to see their new list
+"""
 
 def letterList():
     letterList = []
